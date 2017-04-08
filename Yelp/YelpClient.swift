@@ -33,7 +33,7 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         super.init(coder: aDecoder)
     }
     
-    init(consumerKey key: String!, consumerSecret secret: String!, accessToken: String!, accessSecret: String!) {
+    private init(consumerKey key: String!, consumerSecret secret: String!, accessToken: String!, accessSecret: String!) {
         self.accessToken = accessToken
         self.accessSecret = accessSecret
         let baseUrl = URL(string: "https://api.yelp.com/v2/")
