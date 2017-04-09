@@ -20,10 +20,14 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     var filterStatus = [Int:Bool]()
     
     weak var delegate: FiltersViewControllerDelegate?
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let savedFilters = appDelegate.filter {
+            filterStatus = savedFilters
+        }
         categories = yelpCategories()
         tableView.dataSource = self
         tableView.delegate = self
@@ -42,7 +46,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchCell
 
         cell.filter = (categories[indexPath.row]["name"], filterStatus[indexPath.row] ?? false)
-        
+
         cell.delegate = self
         return cell
     }
@@ -64,6 +68,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         delegate?.filtersViewController(filtersViewController: self, didChangeFilter: filterString)
+        appDelegate.filter = filterStatus
         dismiss(animated: true, completion: nil)
     }
     
