@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aqN-Ba-N2u">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="46" width="375" height="621"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="100" id="Qyr-1Q-DNF" customClass="BusinessCell" customModule="Yelp" customModuleProvider="target">
@@ -59,13 +59,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Divison St, Mission Bay" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRJ-9y-s0p">
-                                                    <rect key="frame" x="81" y="47" width="161" height="16"/>
+                                                    <rect key="frame" x="81" y="47" width="286" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai, Seafood, Salad" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5I-ce-jGa">
-                                                    <rect key="frame" x="81" y="65" width="125" height="16"/>
+                                                    <rect key="frame" x="81" y="65" width="286" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.5569745789471503" green="0.5569745789471503" blue="0.5569745789471503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -97,6 +97,7 @@
                                                 <constraint firstItem="rB1-pg-eFX" firstAttribute="top" secondItem="95h-bS-hxl" secondAttribute="top" constant="10" id="Zgl-M6-zqu"/>
                                                 <constraint firstItem="dmG-fC-HPD" firstAttribute="top" secondItem="95h-bS-hxl" secondAttribute="top" constant="8" id="aYr-tW-jEA"/>
                                                 <constraint firstItem="uvw-O4-RhF" firstAttribute="centerY" secondItem="f9I-nj-DhP" secondAttribute="centerY" id="awl-wQ-ndv"/>
+                                                <constraint firstAttribute="trailing" secondItem="SRJ-9y-s0p" secondAttribute="trailing" constant="8" id="bDM-Dx-GDR"/>
                                                 <constraint firstItem="rB1-pg-eFX" firstAttribute="leading" secondItem="pHQ-bd-gWP" secondAttribute="trailing" constant="10" id="dYY-IN-m2M"/>
                                                 <constraint firstAttribute="trailing" secondItem="rB1-pg-eFX" secondAttribute="trailing" constant="8" id="glh-fS-x4Z"/>
                                                 <constraint firstItem="uvw-O4-RhF" firstAttribute="top" secondItem="pHQ-bd-gWP" secondAttribute="bottom" constant="4" id="inS-4R-ZZ2"/>
@@ -106,6 +107,7 @@
                                                 <constraint firstItem="SRJ-9y-s0p" firstAttribute="leading" secondItem="dmG-fC-HPD" secondAttribute="trailing" constant="8" id="s7G-CB-N9L"/>
                                                 <constraint firstItem="Baj-Sv-ori" firstAttribute="centerY" secondItem="f9I-nj-DhP" secondAttribute="centerY" id="tH7-qR-gXV"/>
                                                 <constraint firstItem="pHQ-bd-gWP" firstAttribute="top" secondItem="95h-bS-hxl" secondAttribute="top" constant="8" id="tfY-tG-qz9"/>
+                                                <constraint firstAttribute="trailing" secondItem="T5I-ce-jGa" secondAttribute="trailing" constant="8" id="xVt-OD-QuR"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="T5I-ce-jGa" secondAttribute="bottom" constant="12" id="ydb-Gl-pUD"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -121,23 +123,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-t5-TGC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Xpk-t5-TGC" firstAttribute="top" secondItem="hR0-74-jRp" secondAttribute="bottom" id="0KP-3i-qxB"/>
+                            <constraint firstItem="Xpk-t5-TGC" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="0s7-eD-UPt"/>
                             <constraint firstAttribute="trailing" secondItem="aqN-Ba-N2u" secondAttribute="trailing" id="Bry-lO-dqY"/>
-                            <constraint firstItem="aqN-Ba-N2u" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="LC0-Dv-ZSs"/>
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="aqN-Ba-N2u" secondAttribute="bottom" id="OMZ-y0-3cO"/>
                             <constraint firstItem="aqN-Ba-N2u" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="SLE-we-yF7"/>
+                            <constraint firstAttribute="trailing" secondItem="Xpk-t5-TGC" secondAttribute="trailing" id="TJf-o7-GY8"/>
+                            <constraint firstItem="aqN-Ba-N2u" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" constant="46" id="blF-rn-AcY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Yelp" id="6ga-kM-B2N">
                         <barButtonItem key="leftBarButtonItem" title="Filters" id="GeK-q5-LuR">
                             <connections>
-                                <segue destination="GjX-mp-jDP" kind="modal" id="lGc-ul-Yzi"/>
+                                <segue destination="GjX-mp-jDP" kind="presentation" id="nCm-UC-xQ9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="Xpk-t5-TGC" id="D7y-Bc-xpv"/>
                         <outlet property="tableView" destination="aqN-Ba-N2u" id="kxW-ZD-m5P"/>
                     </connections>
                 </viewController>
@@ -209,7 +219,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="RhR-Qc-0wo">
                             <connections>
-                                <action selector="onSearchButton:" destination="Oix-sD-VDd" id="ugw-gx-6tM"/>
+                                <action selector="onSearchButton:" destination="Oix-sD-VDd" id="UJy-Cf-xPk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

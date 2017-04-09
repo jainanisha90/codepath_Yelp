@@ -8,11 +8,13 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate {
     
     var businesses: [Business]!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,20 +22,19 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        searchBar.delegate = self
         
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: "", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             self.tableView.reloadData()
-            if let businesses = businesses {
-                for business in businesses {
-                    print(business.name!)
-                    print(business.address!)
-                }
-            }
-            
-            }
-        )
+//            if let businesses = businesses {
+//                for business in businesses {
+//                    print(business.name!)
+//                    print(business.address!)
+//                }
+//            }
+        })
         
         /* Example of Yelp search with more search options specified
          Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
@@ -68,9 +69,34 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        searchBar.enablesReturnKeyAutomatically = false
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        //searchBar.text = ""
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        if let searchText = searchBar.text {
+//            print("got searchText", searchText)
+            Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
+                self.businesses = businesses
+                self.tableView.reloadData()
+            })
+        }
+    }
+    
     func filtersViewController(filtersViewController: FiltersViewController, didChangeFilter filter: [String]) {
-        // TODO: API call with filters
-        print("got filters for search ", filter)
+        Business.searchWithTerm(term: "", sort: nil, categories: filter, deals: nil) { (businesses, error) in
+            self.businesses = businesses
+            self.tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -60,7 +60,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         var filterString: [String] = []
         for (key, value) in filterStatus {
             if value {
-                filterString.append(categories[key]["name"]!)
+                filterString.append(categories[key]["code"]!)
             }
         }
         delegate?.filtersViewController(filtersViewController: self, didChangeFilter: filterString)
