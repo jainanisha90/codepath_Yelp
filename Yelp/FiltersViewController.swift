@@ -37,7 +37,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var filterStatus = [Int: [Int:Bool]?]()
     var filters: [FilterSection] = []
-    let distanceRadioController:RadioController = RadioController()
+    var shouldDisplayAllCells = false
+    
     let sortByRadioController:RadioController = RadioController()
     
     weak var delegate: FiltersViewControllerDelegate?
@@ -67,6 +68,10 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Distance filter
+        if section == 1 && !shouldDisplayAllCells {
+            return 1
+        }
         return filters[section].filterCells?.count ?? 0
     }
     
@@ -87,17 +92,45 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.filter = (filterCell.displayName, isCellSelected)
             cell.delegate = self
             return cell
+        case 1:
+            if shouldDisplayAllCells {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "RadioCell", for: indexPath) as! RadioCell
+                cell.filter = (filterCell.displayName, isCellSelected)
+                cell.delegate = self
+                return cell
+            } else {
+                // Distance Filter
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DistanceCell", for: indexPath) as! DistanceCell
+                let selectedDistance = filterStatus[sectionIndex] ?? [0:true]
+                let selectedDistanceCell = filterValues![selectedDistance!.first!.0]
+                cell.filter = (selectedDistanceCell.displayName, isCellSelected)
+                return cell
+            }
         default:
-            // Distance Filter, Sort By Filter
+            // Sort By Filter
             let cell = tableView.dequeueReusableCell(withIdentifier: "RadioCell", for: indexPath) as! RadioCell
             cell.filter = (filterCell.displayName, isCellSelected)
             cell.delegate = self
-            if(sectionIndex == 1) {
-                distanceRadioController.radioButtons.insert(cell.onButton)
-            } else {
-                sortByRadioController.radioButtons.insert(cell.onButton)
-            }
+            sortByRadioController.radioButtons.insert(cell.onButton)
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sectionIndex = indexPath.section
+        let rowIndex = indexPath.row
+        if sectionIndex == 1 {
+            if shouldDisplayAllCells {
+                shouldDisplayAllCells = false
+                
+                let selectedCellsInSection = [rowIndex:true]
+                filterStatus[sectionIndex] = selectedCellsInSection
+                
+            } else if rowIndex == 0 {
+                shouldDisplayAllCells = !shouldDisplayAllCells
+            }
+            
+            reloadTableViewWithAnimation()
         }
     }
     
@@ -114,6 +147,12 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return (section == 0) ? 0 : 34
         
+    }
+    
+    func reloadTableViewWithAnimation() {
+        let range = NSMakeRange(0, tableView.numberOfSections)
+        let sections = NSIndexSet(indexesIn: range)
+        tableView.reloadSections(sections as IndexSet, with: .automatic)
     }
     
     func switchCell(switchCell: SwitchCell, didChangeValue value: Bool) {
@@ -133,14 +172,16 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         let indexPath = tableView.indexPath(for: radioCell)!
         let sectionIndex = indexPath.section
         
-        if(sectionIndex == 1) {
-            distanceRadioController.selectRadio(radioCell.onButton)
-        } else {
-            sortByRadioController.selectRadio(radioCell.onButton)
-        }
-        
         let selectedCellsInSection = [indexPath.row:value]
         filterStatus[sectionIndex] = selectedCellsInSection
+        
+        if(sectionIndex != 1) {
+            sortByRadioController.selectRadio(radioCell.onButton)
+        } else {
+            shouldDisplayAllCells = false
+            reloadTableViewWithAnimation()
+        }
+        
     }
     
     @IBAction func onCancelButton(_ sender: Any) {

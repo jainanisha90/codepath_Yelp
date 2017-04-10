@@ -13,8 +13,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     var businesses: [Business]!
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noSearchResultsLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

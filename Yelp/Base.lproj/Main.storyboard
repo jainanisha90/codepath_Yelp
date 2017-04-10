@@ -24,8 +24,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aqN-Ba-N2u">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Search Results Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="abt-Uy-ouV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Search Results Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HCl-Cn-JhL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -33,7 +33,7 @@
                                 </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="100" id="Qyr-1Q-DNF" customClass="BusinessCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="60" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qyr-1Q-DNF" id="95h-bS-hxl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -133,7 +133,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="aqN-Ba-N2u" secondAttribute="bottom" id="5JZ-1b-Pn8"/>
+                            <constraint firstItem="aqN-Ba-N2u" firstAttribute="top" secondItem="hR0-74-jRp" secondAttribute="bottom" id="Bru-VF-isd"/>
                             <constraint firstAttribute="trailing" secondItem="aqN-Ba-N2u" secondAttribute="trailing" id="Bry-lO-dqY"/>
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="aqN-Ba-N2u" secondAttribute="bottom" id="OMZ-y0-3cO"/>
                             <constraint firstItem="aqN-Ba-N2u" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="SLE-we-yF7"/>
@@ -149,7 +149,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noSearchResultsLabel" destination="abt-Uy-ouV" id="mHR-iW-AXn"/>
+                        <outlet property="noSearchResultsLabel" destination="HCl-Cn-JhL" id="RBB-wc-7hX"/>
                         <outlet property="tableView" destination="aqN-Ba-N2u" id="kxW-ZD-m5P"/>
                     </connections>
                 </viewController>
@@ -259,6 +259,43 @@
                                             <outlet property="cellContainer" destination="C7J-WE-9Wq" id="SO8-50-8kR"/>
                                             <outlet property="onButton" destination="7f5-9Z-H9e" id="Ojh-ia-dU5"/>
                                             <outlet property="radioLabel" destination="VlE-iy-q5c" id="jaU-DL-2KD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DistanceCell" id="XvB-sc-aTc" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="159" width="375" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XvB-sc-aTc" id="c6S-ZU-Je2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Aw-Ia-2DP">
+                                                    <rect key="frame" x="14" y="4" width="347" height="43"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-SP-2v8">
+                                                            <rect key="frame" x="14" y="11" width="67" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="5rd-SP-2v8" firstAttribute="centerY" secondItem="2Aw-Ia-2DP" secondAttribute="centerY" id="SMU-Qc-fDS"/>
+                                                        <constraint firstItem="5rd-SP-2v8" firstAttribute="leading" secondItem="2Aw-Ia-2DP" secondAttribute="leading" constant="14" id="dFr-z6-elC"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Aw-Ia-2DP" firstAttribute="centerY" secondItem="c6S-ZU-Je2" secondAttribute="centerY" id="91Z-eF-8q7"/>
+                                                <constraint firstItem="2Aw-Ia-2DP" firstAttribute="leading" secondItem="c6S-ZU-Je2" secondAttribute="leading" constant="14" id="S4w-b0-cIb"/>
+                                                <constraint firstAttribute="bottom" secondItem="2Aw-Ia-2DP" secondAttribute="bottom" constant="4" id="aGP-US-Z4f"/>
+                                                <constraint firstItem="2Aw-Ia-2DP" firstAttribute="top" secondItem="c6S-ZU-Je2" secondAttribute="top" constant="4" id="gR7-cp-hGB"/>
+                                                <constraint firstAttribute="trailing" secondItem="2Aw-Ia-2DP" secondAttribute="trailing" constant="14" id="kH6-We-MW6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellContainer" destination="2Aw-Ia-2DP" id="waa-a9-Ph7"/>
+                                            <outlet property="distanceLabel" destination="5rd-SP-2v8" id="MQH-zu-2gH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

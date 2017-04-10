@@ -24,6 +24,7 @@
 		F8EF622E1E9A247700064B4E /* FilterSectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8EF622D1E9A247700064B4E /* FilterSectionTitle.xib */; };
 		F8EF62301E9AD27300064B4E /* FilterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF622F1E9AD27300064B4E /* FilterSection.swift */; };
 		F8EF62321E9B0D9400064B4E /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF62311E9B0D9400064B4E /* RadioCell.swift */; };
+		F8EF62361E9B5AE200064B4E /* DistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF62351E9B5AE200064B4E /* DistanceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F8EF622D1E9A247700064B4E /* FilterSectionTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterSectionTitle.xib; sourceTree = "<group>"; };
 		F8EF622F1E9AD27300064B4E /* FilterSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSection.swift; sourceTree = "<group>"; };
 		F8EF62311E9B0D9400064B4E /* RadioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
+		F8EF62351E9B5AE200064B4E /* DistanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				F8CE68831E989A4C004748C1 /* SwitchCell.swift */,
 				F8EF622B1E9A241400064B4E /* FilterSectionTitle.swift */,
 				F8EF62311E9B0D9400064B4E /* RadioCell.swift */,
+				F8EF62351E9B5AE200064B4E /* DistanceCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				222D8A7D19CCFAE000D2DB53 /* YelpClient.swift in Sources */,
 				F8EF62321E9B0D9400064B4E /* RadioCell.swift in Sources */,
 				222D8A5B19CCF9F900D2DB53 /* AppDelegate.swift in Sources */,
+				F8EF62361E9B5AE200064B4E /* DistanceCell.swift in Sources */,
 				F8CE68841E989A4C004748C1 /* SwitchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
