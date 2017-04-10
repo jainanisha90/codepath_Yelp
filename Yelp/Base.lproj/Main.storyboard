@@ -277,11 +277,18 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="Fk8-nY-5b4">
+                                                            <rect key="frame" x="309" y="9.5" width="24" height="24"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Fk8-nY-5b4" secondAttribute="trailing" constant="14" id="Diw-ew-6qj"/>
                                                         <constraint firstItem="5rd-SP-2v8" firstAttribute="centerY" secondItem="2Aw-Ia-2DP" secondAttribute="centerY" id="SMU-Qc-fDS"/>
                                                         <constraint firstItem="5rd-SP-2v8" firstAttribute="leading" secondItem="2Aw-Ia-2DP" secondAttribute="leading" constant="14" id="dFr-z6-elC"/>
+                                                        <constraint firstItem="Fk8-nY-5b4" firstAttribute="centerY" secondItem="2Aw-Ia-2DP" secondAttribute="centerY" id="k4r-oq-6aY"/>
+                                                        <constraint firstItem="5rd-SP-2v8" firstAttribute="centerY" secondItem="2Aw-Ia-2DP" secondAttribute="centerY" id="oGV-VQ-YyO"/>
+                                                        <constraint firstItem="Fk8-nY-5b4" firstAttribute="centerY" secondItem="5rd-SP-2v8" secondAttribute="centerY" id="qIn-pG-EQI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -336,7 +343,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S3d-AG-hO0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="h5w-Lg-n7w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="h5w-Lg-n7w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -358,7 +365,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GjX-mp-jDP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="YfE-cJ-I8r">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="YfE-cJ-I8r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -376,4 +383,7 @@
             <point key="canvasLocation" x="3484" y="358"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dropdown" width="24" height="24"/>
+    </resources>
 </document>
