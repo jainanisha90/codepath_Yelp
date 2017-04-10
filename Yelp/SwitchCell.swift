@@ -16,6 +16,7 @@ class SwitchCell: UITableViewCell {
 
     @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet weak var onSwitch: UISwitch!
+    @IBOutlet weak var cellContainer: UIView!
     
     var filter: (String?, Bool)? = nil {
         didSet {
@@ -28,7 +29,10 @@ class SwitchCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        cellContainer.layer.borderWidth = 1
+        cellContainer.layer.borderColor = UIColor.gray.cgColor
+        cellContainer.layer.cornerRadius = 4
+        //contentView.layoutMargins = UIEdgeInsets.init(top: 20, left: 20, bottom: 4, right: 4)
         onSwitch.addTarget(self, action: #selector(onSwitchValueChanged(_:)), for: UIControlEvents.valueChanged)
     }
 

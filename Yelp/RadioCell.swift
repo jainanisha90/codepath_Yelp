@@ -16,6 +16,7 @@ class RadioCell: UITableViewCell {
 
     @IBOutlet weak var radioLabel: UILabel!
     @IBOutlet weak var onButton: UIButton!
+    @IBOutlet weak var cellContainer: UIView!
     
     var filter: (String?, Bool)? = nil {
         didSet {
@@ -28,6 +29,10 @@ class RadioCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        cellContainer.layer.borderWidth = 1
+        cellContainer.layer.borderColor = UIColor.gray.cgColor
+        cellContainer.layer.cornerRadius = 4
+        
         onButton.setImage(#imageLiteral(resourceName: "checked"), for: UIControlState.selected)
         onButton.setImage(#imageLiteral(resourceName: "unchecked"), for: UIControlState.normal)
         onButton.addTarget(self, action: #selector(onRadioValueChanged(_:)), for: UIControlEvents.touchUpInside)

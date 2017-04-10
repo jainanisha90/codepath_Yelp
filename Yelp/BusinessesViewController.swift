@@ -85,7 +85,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         if let sortBy = filters.sortBy {
             sortMode = YelpSortMode(rawValue: Int(sortBy)!)
         }
-        Business.searchWithTerm(term: "", sort: sortMode, categories: filters.categories, deals: filters.deals, distance: filters.distance) { (businesses, error) in
+        Business.searchWithTerm(term: "Restaurants", sort: sortMode, categories: filters.categories, deals: filters.deals, distance: filters.distance) { (businesses, error) in
             self.businesses = businesses
             self.tableView.reloadData()
         }
