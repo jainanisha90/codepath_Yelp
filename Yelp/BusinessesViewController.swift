@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate {
     
@@ -14,6 +15,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var noSearchResultsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +26,15 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.estimatedRowHeight = 120
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
+        
+        noSearchResultsLabel.frame.size.height = 0
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         Business.searchWithTerm(term: "", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             self.tableView.reloadData()
-//            if let businesses = businesses {
-//                for business in businesses {
-//                    print(business.name!)
-//                    print(business.address!)
-//                }
-//            }
+            MBProgressHUD.hide(for: self.view, animated: true)
         })
         
     }
@@ -45,17 +45,14 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if businesses != nil {
-            return businesses!.count
-        } else {
-            return 0
-        }
+        return businesses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
         
         cell.business = businesses[indexPath.row]
+        
         return cell
     }
     
@@ -75,7 +72,12 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         if let searchText = searchBar.text {
             Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
                 self.businesses = businesses
+                self.noSearchResultsLabel.frame.size.height = 0
+                if (businesses == nil || businesses?.count == 0) {
+                    self.noSearchResultsLabel.frame.size.height = 22
+                }
                 self.tableView.reloadData()
+                
             })
         }
     }
@@ -85,8 +87,15 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         if let sortBy = filters.sortBy {
             sortMode = YelpSortMode(rawValue: Int(sortBy)!)
         }
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         Business.searchWithTerm(term: "Restaurants", sort: sortMode, categories: filters.categories, deals: filters.deals, distance: filters.distance) { (businesses, error) in
             self.businesses = businesses
+            self.noSearchResultsLabel.frame.size.height = 0
+            if (self.businesses == nil || self.businesses?.count == 0) {
+                self.noSearchResultsLabel.frame.size.height = 22
+            }
+            MBProgressHUD.hide(for: self.view, animated: true)
             self.tableView.reloadData()
         }
     }
