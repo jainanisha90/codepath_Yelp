@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aqN-Ba-N2u">
-                                <rect key="frame" x="0.0" y="46" width="375" height="557"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Search Results Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="abt-Uy-ouV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -130,22 +130,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Restaurants" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-t5-TGC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Xpk-t5-TGC" firstAttribute="top" secondItem="hR0-74-jRp" secondAttribute="bottom" id="0KP-3i-qxB"/>
-                            <constraint firstItem="Xpk-t5-TGC" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="0s7-eD-UPt"/>
+                            <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="aqN-Ba-N2u" secondAttribute="bottom" id="5JZ-1b-Pn8"/>
                             <constraint firstAttribute="trailing" secondItem="aqN-Ba-N2u" secondAttribute="trailing" id="Bry-lO-dqY"/>
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="aqN-Ba-N2u" secondAttribute="bottom" id="OMZ-y0-3cO"/>
                             <constraint firstItem="aqN-Ba-N2u" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="SLE-we-yF7"/>
-                            <constraint firstAttribute="trailing" secondItem="Xpk-t5-TGC" secondAttribute="trailing" id="TJf-o7-GY8"/>
-                            <constraint firstItem="aqN-Ba-N2u" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" constant="46" id="blF-rn-AcY"/>
+                            <constraint firstItem="aqN-Ba-N2u" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="blF-rn-AcY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Yelp" id="6ga-kM-B2N">
@@ -158,7 +150,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noSearchResultsLabel" destination="abt-Uy-ouV" id="mHR-iW-AXn"/>
-                        <outlet property="searchBar" destination="Xpk-t5-TGC" id="D7y-Bc-xpv"/>
                         <outlet property="tableView" destination="aqN-Ba-N2u" id="kxW-ZD-m5P"/>
                     </connections>
                 </viewController>

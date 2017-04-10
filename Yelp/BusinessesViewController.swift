@@ -14,7 +14,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     var businesses: [Business]!
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var noSearchResultsLabel: UILabel!
     
     override func viewDidLoad() {
@@ -24,8 +23,14 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        
+        let searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
+        searchBar.sizeToFit()
+        searchBar.tintColor = UIColor.white
+        searchBar.placeholder = "Restaurants"
+        navigationItem.titleView = searchBar
         
         noSearchResultsLabel.frame.size.height = 0
         MBProgressHUD.showAdded(to: self.view, animated: true)
