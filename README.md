@@ -11,7 +11,7 @@ The following **required** functionality is completed:
 - [x] Search results page
    - [x] Table rows should be dynamic height according to the content height.
    - [x] Custom cells should have the proper Auto Layout constraints.
-   - [ ] Search bar should be in the navigation bar (doesn't have to expand to show location like the real Yelp app does).
+   - [x] Search bar should be in the navigation bar (doesn't have to expand to show location like the real Yelp app does).
 - [x] Filter page. Unfortunately, not all the filters are supported in the Yelp API.
    - [x] The filters you should actually have are: category, sort (best match, distance, highest rated), distance, deals (on/off).
    - [x] The filters table should be organized into sections as in the mock.
@@ -44,7 +44,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Video Walkthrough](Yelp.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
