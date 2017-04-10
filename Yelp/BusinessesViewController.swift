@@ -23,7 +23,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         searchBar.delegate = self
-        
+        searchBar.enablesReturnKeyAutomatically = false
+
         Business.searchWithTerm(term: "", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
@@ -35,17 +36,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
 //                }
 //            }
         })
-        
-        /* Example of Yelp search with more search options specified
-         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-         self.businesses = businesses
-         
-         for business in businesses {
-         print(business.name!)
-         print(business.address!)
-         }
-         }
-         */
         
     }
     
@@ -71,7 +61,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-        searchBar.enablesReturnKeyAutomatically = false
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -84,7 +73,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         searchBar.resignFirstResponder()
         searchBar.showsCancelButton = false
         if let searchText = searchBar.text {
-//            print("got searchText", searchText)
             Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
                 self.businesses = businesses
                 self.tableView.reloadData()
@@ -92,8 +80,12 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func filtersViewController(filtersViewController: FiltersViewController, didChangeFilter filter: [String]) {
-        Business.searchWithTerm(term: "", sort: nil, categories: filter, deals: nil) { (businesses, error) in
+    func filtersViewController(filtersViewController: FiltersViewController, didChangeFilter filters: SelectedFilters) {
+        var sortMode: YelpSortMode?
+        if let sortBy = filters.sortBy {
+            sortMode = YelpSortMode(rawValue: Int(sortBy)!)
+        }
+        Business.searchWithTerm(term: "", sort: sortMode, categories: filters.categories, deals: filters.deals, distance: filters.distance) { (businesses, error) in
             self.businesses = businesses
             self.tableView.reloadData()
         }

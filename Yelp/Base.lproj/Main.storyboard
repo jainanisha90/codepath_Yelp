@@ -123,7 +123,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-t5-TGC">
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-t5-TGC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -167,28 +167,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TDu-cU-FXB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TDu-cU-FXB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCell" rowHeight="64" id="I2d-TL-d2c" customClass="SwitchCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="64"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCell" rowHeight="51" id="I2d-TL-d2c" customClass="SwitchCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I2d-TL-d2c" id="ODw-l5-D8m">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MqK-Qs-m3N">
-                                                    <rect key="frame" x="312" y="16" width="51" height="31"/>
+                                                    <rect key="frame" x="312" y="10" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZB-ZT-oHT">
-                                                    <rect key="frame" x="14" y="20" width="44" height="22"/>
+                                                    <rect key="frame" x="14" y="14.5" width="44" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="MqK-Qs-m3N" firstAttribute="centerY" secondItem="RZB-ZT-oHT" secondAttribute="centerY" id="1D6-cZ-B9v"/>
                                                 <constraint firstItem="RZB-ZT-oHT" firstAttribute="leading" secondItem="ODw-l5-D8m" secondAttribute="leading" constant="14" id="D1E-ge-vKZ"/>
                                                 <constraint firstItem="MqK-Qs-m3N" firstAttribute="centerY" secondItem="ODw-l5-D8m" secondAttribute="centerY" id="DpU-2J-H8I"/>
                                                 <constraint firstAttribute="trailing" secondItem="MqK-Qs-m3N" secondAttribute="trailing" constant="14" id="blm-PX-Q5S"/>
@@ -198,6 +199,36 @@
                                         <connections>
                                             <outlet property="onSwitch" destination="MqK-Qs-m3N" id="k42-HF-ylI"/>
                                             <outlet property="switchLabel" destination="RZB-ZT-oHT" id="0zp-tn-Q3l"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RadioCell" id="4MH-dJ-pif" customClass="RadioCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4MH-dJ-pif" id="gxl-js-88f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlE-iy-q5c">
+                                                    <rect key="frame" x="14" y="15" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7f5-9Z-H9e">
+                                                    <rect key="frame" x="331" y="8" width="30" height="34"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="7f5-9Z-H9e" secondAttribute="trailing" constant="14" id="E7j-eD-EuB"/>
+                                                <constraint firstItem="VlE-iy-q5c" firstAttribute="leading" secondItem="gxl-js-88f" secondAttribute="leading" constant="14" id="ZYC-LG-OvH"/>
+                                                <constraint firstItem="7f5-9Z-H9e" firstAttribute="centerY" secondItem="gxl-js-88f" secondAttribute="centerY" id="lvu-eG-8ep"/>
+                                                <constraint firstItem="7f5-9Z-H9e" firstAttribute="centerY" secondItem="gxl-js-88f" secondAttribute="centerY" id="ur9-64-wj8"/>
+                                                <constraint firstItem="VlE-iy-q5c" firstAttribute="centerY" secondItem="gxl-js-88f" secondAttribute="centerY" id="x2e-UU-832"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="onButton" destination="7f5-9Z-H9e" id="Ojh-ia-dU5"/>
+                                            <outlet property="radioLabel" destination="VlE-iy-q5c" id="jaU-DL-2KD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -229,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrM-xC-rAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4201" y="358"/>
+            <point key="canvasLocation" x="4200.8000000000002" y="357.57121439280365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aqB-gr-obw">
